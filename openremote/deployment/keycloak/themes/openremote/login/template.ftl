@@ -30,7 +30,7 @@
                         <div class="col s12 center">
                             <div id="header-wrapper">
                                 <a id="logo" href="https://www.openremote.io/">
-    <img src="${url.resourcesPath}/img/logo.png" height="105px" width"291px">
+    <img src="${url.resourcesPath}/img/logo.png" height="80px" width="80px">
                                 </a>
                             </div>
                         </div>

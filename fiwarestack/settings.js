@@ -154,14 +154,14 @@ module.exports = {
     // See the comment at the top of this file on how to load the `fs` module used by
     // this setting.
     //
-    https: {
-        key: fs.readFileSync('/data/privkey.pem'),
-        cert: fs.readFileSync('/data/fullchain.pem')
-    },
+    //https: {
+    //    key: fs.readFileSync('/data/privkey.pem'),
+    //    cert: fs.readFileSync('/data/fullchain.pem')
+    //},
 
     // The following property can be used to cause insecure HTTP connections to
     // be redirected to HTTPS.
-    requireHttps: true,
+    requireHttps: false,
 
     // The following property can be used to disable the editor. The admin API
     // is not affected by this option. To disable both the editor and the admin

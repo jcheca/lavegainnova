@@ -4,6 +4,7 @@ services:
 
   orion:
     image: fiware/orion
+    restart: always
     hostname: ucoiot-orion
     container_name: ucoiot-orion
     ports:
@@ -19,6 +20,7 @@ services:
 
   mongo:
     image: mongo:4.1
+    restart: always
     hostname: ucoiot-mongo
     container_name: ucoiot-mongo
     ports:
@@ -30,6 +32,7 @@ services:
 
   quantumleap:
     image: smartsdk/quantumleap:${QL_IMAGE:-0.5}
+    restart: always
     hostname: ucoiot-quatum
     container_name: ucoiot-quatum
     ports:
@@ -47,6 +50,7 @@ services:
 
   crate:
     image: crate:3.3.2
+    restart: always
     hostname: ucoiot-crate
     container_name: ucoiot-crate
     command: crate -Cdiscovery.type=single-node -Cauth.host_based.enabled=false
@@ -63,6 +67,7 @@ services:
 
   grafana:
     image: grafana/grafana:8.1.2
+    restart: always
     user: "root"
     hostname: ucoiot-grafana
     container_name: ucoiot-grafana
@@ -75,6 +80,7 @@ services:
 
   redis:
     image: redis
+    restart: always
     hostname: ucoiot-redis
     container_name: ucoiot-redis
     ports:
@@ -84,6 +90,7 @@ services:
 
   iotagent-lora:
     image: ioeari/iotagent-lora
+    restart: always
     hostname: ucoiot-lora 
     container_name: ucoiot-lora
     depends_on:
@@ -105,6 +112,7 @@ services:
 
   nodered:
     image: nodered/node-red:latest
+    restart: always
     hostname: ucoiot-nodered
     container_name: ucoiot-nodered
     ports:

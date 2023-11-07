@@ -1,0 +1,131 @@
+version: '3.1'
+
+services:
+
+  orion:
+    image: fiware/orion
+    hostname: ucoiot-orion
+    container_name: ucoiot-orion
+    ports:
+      - "1026:1026"
+    command: -logLevel INFO -corsOrigin __ALL -corsMaxAge 600 -noCache -dbhost ucoiot-mongo
+    depends_on:
+      - mongo
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://0.0.0.0:1026/version"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
+
+  mongo:
+    image: mongo:4.1
+    hostname: ucoiot-mongo
+    container_name: ucoiot-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodata:/data/db
+      - mongoback:/dump
+      - mongoconf:/data/configdb
+
+  quantumleap:
+    image: smartsdk/quantumleap:${QL_IMAGE:-0.5}
+    hostname: ucoiot-quatum
+    container_name: ucoiot-quatum
+    ports:
+      - "8668:8668"
+    depends_on:
+      - mongo
+      - orion
+      - crate
+    environment:
+      - CRATE_HOST=${CRATE_HOST:-crate}
+      - USE_GEOCODING=True
+      - LOGLEVEL=ERROR
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+
+  crate:
+    image: crate:3.3.2
+    hostname: ucoiot-crate
+    container_name: ucoiot-crate
+    command: crate -Cdiscovery.type=single-node -Cauth.host_based.enabled=false
+      -Ccluster.name=democluster -Chttp.cors.enabled=true -Chttp.cors.allow-origin="*"
+    environment:
+      - CRATE_HEAP_SIZE="2G"
+    ports:
+      # Admin UI
+      - "4200:4200"
+      # Transport protocol
+      - "4300:4300"
+    volumes:
+      - cratedata:/data
+
+  grafana:
+    image: grafana/grafana:8.1.2
+    user: "root"
+    hostname: ucoiot-grafana
+    container_name: ucoiot-grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - crate
+    volumes:
+      - grafanadt:/var/lib/grafana
+
+  redis:
+    image: redis
+    hostname: ucoiot-redis
+    container_name: ucoiot-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redisdata:/data
+
+  iotagent-lora:
+    image: ioeari/iotagent-lora
+    hostname: ucoiot-lora 
+    container_name: ucoiot-lora
+    depends_on:
+      - mongo
+      - orion
+    expose:
+      - "4061"
+    ports:
+      - "4061:4061"
+    environment:
+      - "IOTA_CB_HOST=ucoiot-orion"
+      - "IOTA_CB_PORT=1026"
+      - "IOTA_NORTH_PORT=4061"
+      - "IOTA_REGISTRY_TYPE=mongodb"
+      - "IOTA_MONGO_HOST=ucoiot-mongo"
+      - "IOTA_MONGO_PORT=27017"
+      - "IOTA_MONGO_DB=iotagent-lorawan"
+      - "IOTA_PROVIDER_URL=http://ucoiot-lora:4061"
+
+  nodered:
+    image: nodered/node-red:latest
+    hostname: ucoiot-nodered
+    container_name: ucoiot-nodered
+    ports:
+      - "1880:1880"
+      - "9000:9000/udp"
+    volumes:
+      - nodered:/data
+      - ./settings.js:/data/settings.js
+
+
+volumes:
+   mongodata:
+   mongoback:
+   mongoconf:
+   cratedata:
+   redisdata:
+   grafanadt:
+   nodered:
+   
+
+networks:
+    default:
+        driver_opts:
+            com.docker.network.driver.mtu: ${DOCKER_MTU:-1400}

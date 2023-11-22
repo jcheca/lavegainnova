@@ -1,0 +1,16 @@
+[
+  {
+    "ref": {
+      "id": "4RLWQDQaLmvXzpL2h6UL4z",
+      "name": "atdStatus"
+    },
+    "filters": [
+      {
+        "type": "jsonPath",
+        "path": "$.state.value",
+        "returnFirst": true,
+        "returnLast": false
+      }
+    ]
+  }
+]

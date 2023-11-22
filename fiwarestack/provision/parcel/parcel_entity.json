@@ -1,0 +1,139 @@
+{
+    "id": "urn:ngsi-ld:parcel:001",
+    "type": "parcel",
+    "temperature": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "relativeHumidity": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "atmosphericPressure": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "doorStatus": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "cE01": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "cE02": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "cE03": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "cE04": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "cE05": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "humidtySoil01": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "humidtySoil02": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "humidtySoil03": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "humidtySoil04": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "humidtySoil05": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "temperatureSoil01": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "temperatureSoil02": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "temperatureSoil03": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "temperatureSoil04": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "temperatureSoil05": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "valve01": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "valve02": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "valve03": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "valve04": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "steps01": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "steps02": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "steps03": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    },
+    "steps04": {
+        "type": "Number",
+        "value": 0,
+        "metadata": {}
+    }
+}

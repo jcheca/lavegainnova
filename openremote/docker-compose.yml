@@ -59,7 +59,8 @@ services:
   manager:
 #    privileged: true
     restart: always
-    image: openremote/manager:${MANAGER_VERSION:-latest}
+#    image: openremote/manager:${MANAGER_VERSION:-latest}
+    image: jcheca/openremote:lavega
     depends_on:
       keycloak:
         condition: service_healthy

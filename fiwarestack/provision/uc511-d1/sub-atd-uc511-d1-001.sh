@@ -1,17 +1,17 @@
 # EnForma COMÚN
 curl localhost:1026/v2/subscriptions -s -S --header 'Content-Type: application/json' --header 'Accept: application/json' --header 'fiware-service: lavega' --header 'fiware-servicepath: /poc' -d @- <<EOF
 {
-        "description": "Sub urn:ngsi-ld:ws301:eui-24e124141b267650",
+        "description": "Sub urn:ngsi-ld:uc511d1:atd-uc511-d1-001",
         "subject": {
             "entities": [
             {
-                "idPattern": "urn:ngsi-ld:ws301:eui-24e124141b267650",
-                "type": "ws301"
+                "idPattern": "urn:ngsi-ld:uc511d1:atd-uc511-d1-001",
+                "type": "uc511d1"
             }
             ],
             "condition": {
                 "attrs": [
-                "state","install","battery"
+                "battery","valve1","valve2","pulse1","pulse2","action"
                 ]
             }
         },
@@ -20,7 +20,7 @@ curl localhost:1026/v2/subscriptions -s -S --header 'Content-Type: application/j
                 "url": "http://quantumleap:8668/v2/notify"
             },
             "attrs": [
-                "state","install","battery"
+                "battery","valve1","valve2","pulse1","pulse2","action"
             ],
             "metadata": ["dateCreated", "dateModified"]
         },

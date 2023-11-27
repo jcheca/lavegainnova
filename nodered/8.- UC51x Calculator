@@ -1,0 +1,481 @@
+[
+    {
+        "id": "c25351c9141aa292",
+        "type": "tab",
+        "label": "UC51x Calculator",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "14060135f4a94d18",
+        "type": "ui_dropdown",
+        "z": "c25351c9141aa292",
+        "name": "",
+        "label": "Nodos List",
+        "tooltip": "",
+        "place": "Select option",
+        "group": "aacd3868b66b6c83",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "urn:ngsi-ld:uc511d1:atd-uc511-d1-001",
+                "value": "urn:ngsi-ld:uc511d1:atd-uc511-d1-001",
+                "type": "str"
+            },
+            {
+                "label": "urn:ngsi-ld:uc511d1:atd-uc511-d1-002",
+                "value": "urn:ngsi-ld:uc511d1:atd-uc511-d1-002",
+                "type": "str"
+            },
+            {
+                "label": "urn:ngsi-ld:uc511d1:atd-uc511-d1-003",
+                "value": "urn:ngsi-ld:uc511d1:atd-uc511-d1-003",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "payload",
+        "topicType": "msg",
+        "className": "",
+        "x": 110,
+        "y": 80,
+        "wires": [
+            [
+                "50d1a7703e4104c2"
+            ]
+        ]
+    },
+    {
+        "id": "24e0e8689e10c7dd",
+        "type": "ui_switch",
+        "z": "c25351c9141aa292",
+        "name": "Encendido",
+        "label": "Encendido",
+        "tooltip": "",
+        "group": "aacd3868b66b6c83",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "21201f2cc7f367a7"
+            ]
+        ]
+    },
+    {
+        "id": "5699cad162df9ad3",
+        "type": "ui_slider",
+        "z": "c25351c9141aa292",
+        "name": "Tiempo",
+        "label": "T",
+        "tooltip": "en segundos",
+        "group": "aacd3868b66b6c83",
+        "order": 4,
+        "width": "0",
+        "height": "0",
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "3000",
+        "step": "60",
+        "className": "",
+        "x": 420,
+        "y": 240,
+        "wires": [
+            [
+                "d306cd6e2d50a7a6"
+            ]
+        ]
+    },
+    {
+        "id": "b98727782f7bd158",
+        "type": "ui_slider",
+        "z": "c25351c9141aa292",
+        "name": "Pulsos",
+        "label": "P",
+        "tooltip": "en pulsos",
+        "group": "aacd3868b66b6c83",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "outs": "end",
+        "topic": "topic",
+        "topicType": "msg",
+        "min": 0,
+        "max": "100",
+        "step": "2",
+        "className": "",
+        "x": 410,
+        "y": 280,
+        "wires": [
+            [
+                "0fdb5bbf2b132e7a"
+            ]
+        ]
+    },
+    {
+        "id": "f6b0aadb36483a98",
+        "type": "ui_button",
+        "z": "c25351c9141aa292",
+        "name": "",
+        "group": "aacd3868b66b6c83",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Calcular",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 100,
+        "y": 420,
+        "wires": [
+            [
+                "7bf2d08667dbaa85"
+            ]
+        ]
+    },
+    {
+        "id": "466838b603c2a5be",
+        "type": "ui_text",
+        "z": "c25351c9141aa292",
+        "group": "aacd3868b66b6c83",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Debug Test",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 790,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "50d1a7703e4104c2",
+        "type": "function",
+        "z": "c25351c9141aa292",
+        "name": "",
+        "func": "// Set Device Global\nglobal.set(\"decoder.lista\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 80,
+        "wires": [
+            [
+                "1fe62089c2d95772"
+            ]
+        ]
+    },
+    {
+        "id": "21201f2cc7f367a7",
+        "type": "function",
+        "z": "c25351c9141aa292",
+        "name": "",
+        "func": "// Set On Global parameters\nif (msg.payload == false){\n    global.set(\"decoder.timecontrol\", 0);\n    global.set(\"decoder.tiempo\",0);\n    global.set(\"decoder.flowcontrol\", 0);\n    global.set(\"decoder.flow\",0);\n    global.set(\"decoder.switch\", 0);\n    msg.enabled = false;    \n} else {\n    global.set(\"decoder.switch\", 1);\n    msg.enabled = true;\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 140,
+        "wires": [
+            [
+                "1fe62089c2d95772",
+                "5699cad162df9ad3",
+                "b98727782f7bd158"
+            ]
+        ]
+    },
+    {
+        "id": "d306cd6e2d50a7a6",
+        "type": "function",
+        "z": "c25351c9141aa292",
+        "name": "",
+        "func": "// Compose Global Decoder\nif (msg.payload != 0){\n   global.set(\"decoder.timecontrol\",\"1\");\n   global.set(\"decoder.tiempo\", msg.payload);\n} else {   \n   global.set(\"decoder.timecontrol\",\"0\");\n   global.set(\"decoder.tiempo\",\"0\");\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 240,
+        "wires": [
+            [
+                "1fe62089c2d95772"
+            ]
+        ]
+    },
+    {
+        "id": "0fdb5bbf2b132e7a",
+        "type": "function",
+        "z": "c25351c9141aa292",
+        "name": "",
+        "func": "// Compose Global Decoder\nif (msg.payload != 0){\n   global.set(\"decoder.flowcontrol\",\"1\");\n   global.set(\"decoder.flow\", msg.payload);\n} else {   \n   global.set(\"decoder.flowcontrol\",\"0\");\n   global.set(\"decoder.flow\",\"0\");\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 280,
+        "wires": [
+            [
+                "1fe62089c2d95772"
+            ]
+        ]
+    },
+    {
+        "id": "1fe62089c2d95772",
+        "type": "function",
+        "z": "c25351c9141aa292",
+        "name": "",
+        "func": "// Get General Decoder from Global\nmsg.payload = global.get(\"decoder\");\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 80,
+        "wires": [
+            [
+                "2aa1f67d0e92ab90"
+            ]
+        ]
+    },
+    {
+        "id": "2aa1f67d0e92ab90",
+        "type": "json",
+        "z": "c25351c9141aa292",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": true,
+        "x": 630,
+        "y": 80,
+        "wires": [
+            [
+                "466838b603c2a5be"
+            ]
+        ]
+    },
+    {
+        "id": "7bf2d08667dbaa85",
+        "type": "function",
+        "z": "c25351c9141aa292",
+        "name": "",
+        "func": "//\n// Get Global Decoder to calculate Milesight Payload\n//\nmsg.payload = global.get(\"decoder\");\n\nconst cf = [];\n\ncf[0] = global.get(\"decoder.timecontrol\");\ncf[1] = global.get(\"decoder.flowcontrol\");\ncf[2] = global.get(\"decoder.switch\");\ncf[3] = 0;\ncf[4] = 0;\ncf[5] = 0;\ncf[6] = global.get(\"decoder.valvula\");\n \n// Control Field\nconst carga = [];\n\ncarga[0] = \"ff\";\ncarga[1] = \"1d\";\ncarga[2] = parseInt(msg.payload = cf.join(\"\"),2).toString(16).padStart(2,'0');\ncarga[3] = \"00\";\n\n// TimeSecs\nif (global.get(\"decoder.tiempo\") != 0) { \n    carga[4] = global.get(\"decoder.tiempo\").toString(16).padStart(6,'0');\n    carga[4] = carga[4].substr(4,2)+carga[4].substr(2,2)+carga[4].substr(0,2);\n    \n}\n// Num.Flows\nif (global.get(\"decoder.flow\") != 0) { \n    carga[5] = global.get(\"decoder.flow\").toString(16).padStart(8,'0');\n    carga[5] = carga[5].substr(6,2)+carga[5].substr(4,2)+carga[5].substr(2,2)+carga[5].substr(0,2);\n    \n}\n\nmsg.payload = carga.join(\"\");\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 420,
+        "wires": [
+            [
+                "db2bdce9c69e6fd1",
+                "09210bafafb28a23"
+            ]
+        ]
+    },
+    {
+        "id": "bff43854f267cefe",
+        "type": "ui_dropdown",
+        "z": "c25351c9141aa292",
+        "name": "",
+        "label": "Vávula",
+        "tooltip": "",
+        "place": "",
+        "group": "aacd3868b66b6c83",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "multiple": false,
+        "options": [
+            {
+                "label": "Vávula 1",
+                "value": "00",
+                "type": "str"
+            },
+            {
+                "label": "Válvula 2",
+                "value": "01",
+                "type": "str"
+            }
+        ],
+        "payload": "",
+        "topic": "payload",
+        "topicType": "msg",
+        "className": "",
+        "x": 90,
+        "y": 200,
+        "wires": [
+            [
+                "bed9d74ad514e89e"
+            ]
+        ]
+    },
+    {
+        "id": "bed9d74ad514e89e",
+        "type": "function",
+        "z": "c25351c9141aa292",
+        "name": "",
+        "func": "// Set Valvula on Globals\nglobal.set(\"decoder.valvula\",msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 260,
+        "y": 200,
+        "wires": [
+            [
+                "1fe62089c2d95772"
+            ]
+        ]
+    },
+    {
+        "id": "db2bdce9c69e6fd1",
+        "type": "ui_text",
+        "z": "c25351c9141aa292",
+        "group": "aacd3868b66b6c83",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Milesight DownLink",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 590,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "09210bafafb28a23",
+        "type": "function",
+        "z": "c25351c9141aa292",
+        "name": "",
+        "func": "//\n// Convert Milesight Protocol to base64 to TTN\n//\nconst binaryString = Buffer.from(msg.payload, 'hex').toString('binary');\nconst base64String = Buffer.from(binaryString, 'binary').toString('base64');\nmsg.payload = {\n    \"downlinks\": [\n        {\n            \"f_port\": 1,\n            \"frm_payload\": base64String,\n            \"priority\": \"HIGH\"\n        }\n    ]\n}\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 460,
+        "wires": [
+            [
+                "5448242e5646749c"
+            ]
+        ]
+    },
+    {
+        "id": "5448242e5646749c",
+        "type": "ui_text",
+        "z": "c25351c9141aa292",
+        "group": "aacd3868b66b6c83",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "TTN DownLink",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 600,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "32aac49ba0959e44",
+        "type": "comment",
+        "z": "c25351c9141aa292",
+        "name": "Dashboard",
+        "info": "Generador de acciones.",
+        "x": 100,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "e6361918a8f31329",
+        "type": "comment",
+        "z": "c25351c9141aa292",
+        "name": "Generador acciones (TTN/Milesight)",
+        "info": "",
+        "x": 180,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "aacd3868b66b6c83",
+        "type": "ui_group",
+        "name": "UC511",
+        "tab": "e2a855938e99cb19",
+        "order": 1,
+        "disp": false,
+        "width": "12",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "e2a855938e99cb19",
+        "type": "ui_tab",
+        "name": "Decoder Calculator",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]

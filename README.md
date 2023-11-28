@@ -12,3 +12,5 @@ Relación de directorios.
 [Presentación del curso en línea](http://tiny.cc/0iofvz)
 
 ![alt text](https://github.com/jcheca/lavegainnova/blob/main/lavegaFormacion.png "LaVega Innova Formación")
+
+[Aula de Transformación Digital FIWARE de la Universidad de Córdoba](http://www.uco.es/atdfiware)

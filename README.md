@@ -13,4 +13,4 @@ Relación de directorios.
 
 ![alt text](https://github.com/jcheca/lavegainnova/blob/main/lavegaFormacion.png "LaVega Innova Formación")
 
-[Aula de Transformación Digital FIWARE de la Universidad de Córdoba](http://www.uco.es/atdfiware)
+[Aula de Transformación Digital FIWARE de la Universidad de Córdoba](http://www.uco.es/atdfiware) Nov.2023

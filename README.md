@@ -1,11 +1,13 @@
 # La Vega Innova
 La Vega Innova :: iHUB FIWARE del MAPA
 
-1. VPS: Script Post-Instalación
-2. doc: Documentación Técnica
-3. fiwarestack: Stack FIWARE + Provisión de entidades.
-4. nodered: Ejemplos NodeRed
-5. openremote: Aplicación "Plataforma IoT"
+Relación de directorios.
+
+1. **VPS**: Script Post-Instalación
+2. **doc**: Documentación Técnica
+3. **fiwarestack**: Stack FIWARE + Provisión de entidades.
+4. **nodered**: Ejemplos NodeRed
+5. **openremote**: Aplicación "Plataforma IoT"
 
 [Presentación del curso en línea](http://tiny.cc/0iofvz)
 

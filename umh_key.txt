@@ -1,0 +1,5 @@
+# UMH TTN_MQTT
+server: eu1.cloud.thethings.network
+Aplication: atd-cesens@ttn
+Api-key: NNSXS.4JRTLFXYZ2M6JJLMSIIVPGY5UPCESCQ27N6MDEA.Y3YPEBITO57YI6NE5W42RT2JMBS3GJSMFFHRJUKVUHDVLKNNEKRA
+Topic: v3/atd-cesens@ttn/devices/+/up
